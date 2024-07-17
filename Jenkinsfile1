@@ -1,6 +1,11 @@
 Pipeline {
     agent any
     tools{
+        stage('sonarqube scan'){
+            steps{
+                sh ('mvn sonar:sonar')
+            }
+        }
         maven 'M2_HOME'
         stages{
             stage('maven commands')
@@ -8,5 +13,7 @@ Pipeline {
                 sh 'mvn clean compile install test package'
             }
         }
+        
+        
     }
 }
