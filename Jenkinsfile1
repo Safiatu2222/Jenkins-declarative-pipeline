@@ -1,6 +1,7 @@
 Pipeline {
     agent any
     tools{
+        stages{
         stage('sonarqube scan'){
             steps{
                 sh ('mvn sonar:sonar')
